@@ -55,5 +55,36 @@ Actual: [[1]], Predicted: [[0.97092169]]
 Actual: [[0]], Predicted: [[0.00186825]]
 ```
 
-## API
+# API
+## `Sequential`
+```python
+nn.Sequential(
+    layers=[]
+)
+```
+
+Function|Description
+-|-
+`__init__`|Instantiates a new `Sequential` model. If given a list of layers, it will add these to the model, similar to `add()`.
+`add`|Add a single layer to the model.
+`compile`|Takes the added layers and the parameters of `compile` to generate a trainable model.
+`fit`|After compilation, `fit()` trains the model on its inputs and outputs.
+`predict`|Makes predictions after fitting to the data. Takes in a subset of the input data to make a prediction.
+
+## Layers
+### `Layer` Layer
+Abstract class for the layers API. This shouldn't be used in an instance of a model.
+
+### `Input` Layer
+This should always be the first layer of the `Sequential` model. Since the other layers take in an explicit `output_size` as their input, they infer their `input_size` from the previous layer's `output_size`. This means we must declare the model's first `input_size`.
+
+### `Dense` Layer
+Just your regular densely-connected NN layer. At the moment, the dense layer only performs the dot product and bias addition, but no activation function. The activation function is out-sourced to the `Activation` layers.
+
+### `Activation` Layer
+Applies an activation function to an output.
+
+### `Tanh` Layer
+Hyperbolic tangent activation function.
+
 
