@@ -1,3 +1,6 @@
+title: Neural Network from Scratch Documentation
+description: A simple neural network implementation made with just Python and NumPy.
+show_downloads: true
 relative_links:
   enabled: true
   collections: true
