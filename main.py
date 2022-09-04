@@ -22,36 +22,11 @@ def main():
 
     nn.compile()
 
-    epochs = 10000
-    learning_rate = 0.01
+    nn.fit(X, Y, epochs=10000, learning_rate=0.01)
+    Y_pred = nn.predict(X)
 
-    for epoch in range(epochs):
-        error = 0
-        for (x, y) in zip(X, Y):
-            output = x
-
-            # Forward prop
-            for layer in nn.layers:
-                output = layer.forward(output)
-
-            # Error 
-            error += mse(y, output)
-
-            # Backward prop
-            grad = mse_prime(y, output)
-            for layer in reversed(nn.layers):
-                grad = layer.backward(grad, learning_rate)
-
-        error /= len(X)
-        if 100 * (epoch + 1) % epochs == 0:
-            print(f'{epoch + 1}/{epochs}, error={error}')
-
-    for (x,y) in zip(X, Y):
-        output = x
-        for layer in nn.layers:
-            output = layer.forward(output)
-        print(f'output: {output}, actual: {y}')
-
+    for (y_true, y_pred) in zip(Y, Y_pred):
+        print(y_true, y_pred)
 
 
 if __name__ == '__main__':

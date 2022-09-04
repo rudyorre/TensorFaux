@@ -94,8 +94,36 @@ class Sequential:
             self.layers[i].generate(prev_output_size)
             prev_output_size = self.layers[i].output_size
 
-    # def fit(self):
-# 
+    def fit(self, X, Y, epochs=1, learning_rate=1):
+        for epoch in range(epochs):
+            error = 0
+            for (x, y) in zip(X, Y):
+                output = x
+
+                # Forward prop
+                for layer in self.layers:
+                    output = layer.forward(output)
+
+                # Error 
+                error += mse(y, output)
+
+                # Backward prop
+                grad = mse_prime(y, output)
+                for layer in reversed(self.layers):
+                    grad = layer.backward(grad, learning_rate)
+
+            error /= len(X)
+            if 100 * (epoch + 1) % epochs == 0:
+                print(f'{epoch + 1}/{epochs}, error={error}')
+
+    def predict(self, X):
+        y_pred = []
+        for x in X:
+            output = x
+            for layer in self.layers:
+                output = layer.forward(output)
+            y_pred.append(output)
+        return np.array(y_pred)
 
 # Functions
 
