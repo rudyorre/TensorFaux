@@ -2,6 +2,8 @@ from nn import Input, Dense, Tanh, mse, mse_prime, Sequential
 import numpy as np
 
 def main():
+    np.random.seed(42)
+
     X = np.reshape([[0, 0], [0, 1], [1, 0], [1, 1]], (4, 2, 1))
     Y = np.reshape([[0], [1], [1], [0]], (4, 1, 1))
 
@@ -26,7 +28,7 @@ def main():
     Y_pred = nn.predict(X)
 
     for (y_true, y_pred) in zip(Y, Y_pred):
-        print(y_true, y_pred)
+        print(f'Actual: {y_true}, Predicted: {y_pred}')
 
 
 if __name__ == '__main__':
