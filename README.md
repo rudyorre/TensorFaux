@@ -1,5 +1,3 @@
-# Neural Network from Scratch
-
 A simple neural network implementation which utilizes a simimilar API to TensorFlow's Sequential models.
 
 ## Description
