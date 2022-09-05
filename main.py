@@ -1,12 +1,13 @@
-from nn import Input, Dense, Tanh, mse, mse_prime, Sequential
+from nn import Input, Dense, Softmax, Tanh, mse, mse_prime, Sequential, Softmax
 import numpy as np
+import nn
 
 def main():
     np.random.seed(42)
 
     X = np.reshape([[0, 0], [0, 1], [1, 0], [1, 1]], (4, 2, 1))
     Y = np.reshape([[0], [1], [1], [0]], (4, 1, 1))
-
+    print(X)
     network = [
         Input(2),
         Dense(3),
@@ -15,17 +16,18 @@ def main():
         Tanh()
     ]
 
-    nn = Sequential()
-    nn.add(Input(2))
-    nn.add(Dense(3))
-    nn.add(Tanh())
-    nn.add(Dense(1))
-    nn.add(Tanh())
+    model = Sequential()
+    model.add(Input(2))
+    model.add(Dense(3))
+    model.add(Tanh())
+    model.add(Dense(1))
+    # nn.add(Softmax())
+    model.add(Tanh())
 
-    nn.compile()
+    model.compile(optimizer=nn.optimizers.GD(learning_rate=0.01))
 
-    nn.fit(X, Y, epochs=10000, learning_rate=0.01)
-    Y_pred = nn.predict(X)
+    model.fit(X, Y, epochs=10000, verbose=True)
+    Y_pred = model.predict(X)
 
     for (y_true, y_pred) in zip(Y, Y_pred):
         print(f'Actual: {y_true}, Predicted: {y_pred}')
