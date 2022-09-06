@@ -1,6 +1,6 @@
-from nn import Input, Dense, Softmax, Tanh, mse, mse_prime, Sequential, Softmax
+from tensorfaux import Input, Dense, Softmax, Tanh, mse, mse_prime, Sequential, Softmax
 import numpy as np
-import nn
+import tensorfaux as tf
 
 def main():
     np.random.seed(42)
@@ -24,7 +24,7 @@ def main():
     # nn.add(Softmax())
     model.add(Tanh())
 
-    model.compile(optimizer=nn.optimizers.SGD(learning_rate=0.01, batch_size=3))
+    model.compile(optimizer=tf.optimizers.SGD(learning_rate=0.01, batch_size=3))
 
     model.fit(X, Y, epochs=10000, verbose=True, verbose_count=100)
     Y_pred = model.predict(X)
