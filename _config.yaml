@@ -4,7 +4,7 @@ show_downloads: true
 relative_links:
   enabled: true
   collections: true
-remote_theme: pages-themes/cayman@v0.2.0
+remote_theme: allejo/jekyll-docs-theme@v1.0.0
 plugins:
   - jekyll-relative-links
   - jekyll-remote-theme # add this line to the plugins list if you already have one
