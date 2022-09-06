@@ -50,7 +50,7 @@ ui:
   mode: 'light' # 'auto', 'dark', 'light'
   brand:
     dark: "#00ceff"
-    light: "#a20000"
+    light: "#ff6f00"
   border_color:
     dark: "#5f5f5f"
     light: "#dee2e6"
