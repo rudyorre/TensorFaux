@@ -50,10 +50,10 @@ ui:
   mode: 'light' # 'auto', 'dark', 'light'
   brand:
     dark: "#00ceff"
-    light: "#FF6F00" # "#a20000"
+    light: "#a20000"
   border_color:
     dark: "#5f5f5f"
-    light: "#FF6F00" # "#dee2e6"
+    light: "#dee2e6"
   header:
     trianglify: true
     dark:
