@@ -9,5 +9,89 @@ plugins:
   - jekyll-relative-links
   - jekyll-remote-theme # add this line to the plugins list if you already have one
 
+# name of the software
+name: TensorFaux
+
+#project:
+#  version: 1.0.0
+#  download_url: https://github.com/allejo/jekyll-docs-theme/releases
+#  download_text: Download
+
+license:
+  software: MIT License
+  software_url: https://opensource.org/licenses/MIT
+
+  docs: CC BY 3.0
+  docs_url: https://creativecommons.org/licenses/by/3.0/
+
+links:
+  header:
+    - title: GitHub
+      icon: github
+      brand: true
+      url: https://github.com/rudyorre/TensorFaux
+  homepage:
+    - title: View on GitHub
+      icon: github
+      brand: true
+      url: https://github.com/rudyorre/TensorFaux
+  footer:
+    - title: GitHub
+      icon: github
+      brand: true
+      url: https://github.com/rudyorre/TensorFaux
+    - title: Issues
+      icon: bug
+      url: https://github.com/rudyorre/TensorFaux/issues?state=open
+
+ui:
+  mode: 'light' # 'auto', 'dark', 'light'
+  brand:
+    dark: "#00ceff"
+    light: "#a20000"
+  border_color:
+    dark: "#5f5f5f"
+    light: "#dee2e6"
+  header:
+    trianglify: true
+    dark:
+      color1: "#062a48"
+      color2: "#304e67"
+    light:
+      color1: "#080331"
+      color2: "#673051"
+  masthead:
+    color:
+      dark: "#fff"
+      light: "#fff"
+    align:
+      homepage: 'center'
+      page: 'left'
+
+social:
+  github:
+    user: rudyorre
+    repo: TensorFaux
+  twitter:
+    enabled: false
+    via:
+    hash:
+    account:
+  facebook:
+    enabled: false
+    profileUrl:
+
+#analytics:
+#  google: UA-123456-1
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+#  - jekyll-docs-theme.gemspec
+#  - LICENSE.md
+  - README.md
+#  - screenshot.png
+
 # Markdown Github Pages Guide: https://nicolas-van.github.io/easy-markdown-to-github-pages/
-# Cayman documentation: https://github.com/pages-themes/cayman
