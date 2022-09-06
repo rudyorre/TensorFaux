@@ -1,6 +1,6 @@
 title: TensorFaux
 description: /ˈtensərfō/<br />A knock-off of TensorFlow's more basic deep learning features.
-baseurl: ""
+# baseurl: ""
 # theme: jekyll-docs-theme
 show_downloads: true
 relative_links:
