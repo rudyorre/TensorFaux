@@ -50,18 +50,18 @@ ui:
   mode: 'light' # 'auto', 'dark', 'light'
   brand:
     dark: "#00ceff"
-    light: "#a20000"
+    light: "#FF6F00" # "#a20000"
   border_color:
     dark: "#5f5f5f"
-    light: "#dee2e6"
+    light: "#FF6F00" # "#dee2e6"
   header:
     trianglify: true
     dark:
       color1: "#062a48"
       color2: "#304e67"
     light:
-      color1: "#FE6F00" # "#080331"
-      color2: "#FF8400" # "#673051"
+      color1: "#FF6F00" # "#080331"
+      color2: "#FFA800" # "#673051"
   masthead:
     color:
       dark: "#fff"

@@ -85,4 +85,7 @@ Applies an activation function to an output.
 ### `Tanh` Layer
 Hyperbolic tangent activation function.
 
+## Acknowledgements
+- [TensorFlow Brand Guidelines](https://www.tensorflow.org/extras/tensorflow_brand_guidelines.pdf)
+
 
