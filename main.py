@@ -24,9 +24,9 @@ def main():
     # nn.add(Softmax())
     model.add(Tanh())
 
-    model.compile(optimizer=nn.optimizers.GD(learning_rate=0.01))
+    model.compile(optimizer=nn.optimizers.SGD(learning_rate=0.01, batch_size=3))
 
-    model.fit(X, Y, epochs=10000, verbose=True)
+    model.fit(X, Y, epochs=10000, verbose=True, verbose_count=100)
     Y_pred = model.predict(X)
 
     for (y_true, y_pred) in zip(Y, Y_pred):
