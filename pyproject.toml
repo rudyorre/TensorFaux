@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tensorfaux"
+version = "0.0.1"
+authors = [
+	{ name="Rudy Orre", email="rudyorre@gmail.com" },
+]
+description = "A basic deep learning package"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://rudyorre.github.io/TensorFaux:"
+"Bug Tracker" = "https://github.com/rudyorre/TensorFaux/issues"
