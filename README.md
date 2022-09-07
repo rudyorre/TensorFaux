@@ -87,5 +87,5 @@ Hyperbolic tangent activation function.
 
 ## Acknowledgements
 - [TensorFlow Brand Guidelines](https://www.tensorflow.org/extras/tensorflow_brand_guidelines.pdf)
-
-
+- [@allejo/jekyll-docs-theme](https://github.com/allejo/jekyll-docs-theme)
+- [Packaging Projects Tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
