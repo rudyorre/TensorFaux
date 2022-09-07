@@ -1,6 +1,7 @@
-from tensorfaux import Input, Dense, Tanh, Sequential
-import tensorfaux as tf
 import numpy as np
+from tensorfaux.layers import Input, Dense, Tanh
+from tensorfaux.models import Sequential
+from tensorfaux.optimizers import SGD
 
 def main():
     np.random.seed(42)
@@ -17,7 +18,7 @@ def main():
         Dense(1),
         Tanh(),
     ])
-    model.compile(optimizer=tf.optimizers.SGD(learning_rate=0.01, batch_size=3))
+    model.compile(optimizer=SGD(learning_rate=0.01, batch_size=3))
 
     # Training
     model.fit(X, Y, epochs=10000)

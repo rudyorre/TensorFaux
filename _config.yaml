@@ -1,6 +1,4 @@
 title: TensorFaux
-# description: /ˈtensərfō/<br />A knock-off of TensorFlow's more basic deep learning features.
-# baseurl: ""
 # theme: jekyll-docs-theme
 show_downloads: true
 relative_links:
@@ -93,7 +91,7 @@ exclude:
   - Gemfile.lock
 #  - jekyll-docs-theme.gemspec
 #  - LICENSE.md
-  - README.md
+#  - README.md
 #  - screenshot.png
 
 # Markdown Github Pages Guide: https://nicolas-van.github.io/easy-markdown-to-github-pages/

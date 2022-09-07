@@ -61,9 +61,10 @@ Due to its simplicity, the code could be easily modified to support new features
 Below is an example of a neural network with two `Dense()` layers using `Tanh()` activation functions, optimized with [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent), learning the XOR function. Although seemingly trivial, the XOR function isn't [linearly separable](https://medium.com/@lucaspereira0612/solving-xor-with-a-single-perceptron-34539f395182#:~:text=Geometrically%2C%20this%20means%20the%20perceptron,single%20hyperplane%20to%20separate%20it.), meaning linear models such as [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) and single-layer [perceptrons](https://en.wikipedia.org/wiki/Perceptron) cannot learn XOR.
 
 ```python
-from tensorfaux import Input, Dense, Tanh, Sequential
-import tensorfaux as tf
 import numpy as np
+from tensorfaux.layers import Input, Dense, Tanh
+from tensorfaux.models import Sequential
+from tensorfaux.optimizers import SGD
 
 np.random.seed(42)
 
@@ -79,7 +80,7 @@ model = Sequential([
     Dense(1),
     Tanh(),
 ])
-model.compile(optimizer=tf.optimizers.SGD(learning_rate=0.01, batch_size=3))
+model.compile(optimizer=SGD(learning_rate=0.01, batch_size=3))
 
 # Training
 model.fit(X, Y, epochs=10000)
