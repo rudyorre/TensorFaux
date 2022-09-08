@@ -1,4 +1,5 @@
 import numpy as np
+import tensorfaux
 from tensorfaux.layers import Input, Dense, Tanh
 from tensorfaux.models import Sequential
 from tensorfaux.optimizers import SGD

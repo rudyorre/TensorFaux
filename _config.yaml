@@ -43,6 +43,9 @@ links:
     - title: Issues
       icon: bug
       url: https://github.com/rudyorre/TensorFaux/issues?state=open
+    - title: PyPI
+      icon: code
+      url: https://pypi.org/project/tensorfaux/
 
 ui:
   mode: 'light' # 'auto', 'dark', 'light'

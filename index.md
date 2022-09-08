@@ -22,15 +22,10 @@ This theme is designed for writing documentation websites instead of having larg
 ## Installation
 {:.mt-lg-0}
 
-This library is designed to be as simple as possible, so the only Python dependency is Numpy. Simply running the code should be enough, however, initializing a [virtual environment](https://docs.python.org/3/library/venv.html) in the repo directory would be best practice.
+This library is designed to be as simple as possible, so the only Python dependency is Numpy. Simply running the code should be enough, however, initializing a [virtual environment](https://docs.python.org/3/library/venv.html) in your directory would be best practice.
 
 ```zsh
-# Install repository
-git clone https://github.com/rudyorre/TensorFaux.git
-
-# Install Dependencies
-cd TensorFaux
-pip3 install -r requirements.txt
+pip3 install tensorfaux
 ```
 
 ### Why did I make this?
