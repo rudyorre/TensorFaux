@@ -1,6 +1,6 @@
 import numpy as np
 import tensorfaux
-from tensorfaux.layers import Input, Dense, Tanh
+from tensorfaux.layers import Dense, Tanh
 from tensorfaux.models import Sequential
 from tensorfaux.optimizers import SGD
 
@@ -13,16 +13,15 @@ def main():
 
     # Instantiation
     model = Sequential([
-        Input(2),
-        Dense(3),
+        Dense(2, 3),
         Tanh(),
-        Dense(1),
+        Dense(3, 1),
         Tanh(),
     ])
     model.compile(optimizer=SGD(learning_rate=0.01, batch_size=3))
 
     # Training
-    model.fit(X, Y, epochs=10000)
+    model.fit(X, Y, epochs=10000, verbose=True)
 
     # Prediction
     Y_pred = model.predict(X)

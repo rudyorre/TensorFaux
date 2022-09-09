@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import signal
 
 class Layer:
     def __init__(self) -> None:
@@ -11,30 +12,12 @@ class Layer:
     def backward(self, output_grad, alpha):
         pass
 
-    def generate(self, input_size):
-        self.input_size = input_size
-        self.output_size = input_size
-
-class Input(Layer):
-    def __init__(self, input_size) -> None:
-        self.input_size = input_size
-        self.output_size = input_size
-
-    def forward(self, input):
-        return input
-
-    def backward(self, output_grad, alpha):
-        return output_grad
-
 class Dense(Layer):
-    def __init__(self, output_size) -> None:
-        self.input_size = None
-        self.output_size = output_size
-
-    def generate(self, input_size):
-        self.input_size = input_size
-        self.weights = np.random.randn(self.output_size, self.input_size)
-        self.bias = np.random.randn(self.output_size, 1)
+    def __init__(self, input_shape, output_shape) -> None:
+        self.input_shape = input_shape
+        self.output_shape = output_shape
+        self.weights = np.random.randn(self.output_shape, self.input_shape)
+        self.bias = np.random.randn(self.output_shape, 1)
     
     def forward(self, input):
         # if self.input_size == None:
@@ -90,11 +73,16 @@ class Linear(Activation):
         super().__init__(linear, linear_prime)
 
 class Softmax(Layer):
+    def __init__(self, stable=False):
+        self.stable=stable
+
     def forward(self, input):
         '''
         Stable softmax upgrade: https://stackoverflow.com/questions/42599498/numerically-stable-softmax
         '''
-        z = input - np.max(input)
+        z = input
+        if self.stable:
+            z -= np.max(z)
         exps = np.exp(z)
         self.output = exps / np.sum(exps)
         return self.output
@@ -104,4 +92,49 @@ class Softmax(Layer):
         Softmax backprop derivation: https://www.youtube.com/watch?v=AbLvJVwySEo&ab_channel=TheIndependentCode
         '''
         n = np.size(self.output)
+        # print(f'n: {n}, self.output.T: {self.output.T.shape}, self.output: {self.output.shape} output_grad: {output_grad.shape}')
         return np.dot((np.identity(n) - self.output.T) * self.output, output_grad)
+
+# Convolutional Neural Network Layers:
+class Convolutional(Layer):
+    def __init__(self, input_shape, kernel_size, depth):
+        input_depth, input_height, input_width = input_shape
+        self.depth = depth
+        self.input_shape = input_shape
+        self.input_depth = input_depth
+        self.output_shape = (depth, input_height - kernel_size + 1, input_width - kernel_size + 1)
+        self.kernels_shape = (depth, input_depth, kernel_size, kernel_size)
+        self.kernels = np.random.randn(*self.kernels_shape)
+        self.biases = np.random.randn(*self.output_shape)
+
+    def forward(self, input):
+        self.input = input
+        self.output = np.copy(self.biases)
+        for i in range(self.depth):
+            for j in range(self.input_depth):
+                self.output[i] += signal.correlate2d(self.input[j], self.kernels[i, j], "valid")
+        return self.output
+
+    def backward(self, output_grad, learning_rate):
+        kernels_grad = np.zeros(self.kernels_shape)
+        input_grad = np.zeros(self.input_shape)
+
+        for i in range(self.depth):
+            for j in range(self.input_depth):
+                kernels_grad[i, j] = signal.correlate2d(self.input[j], output_grad[i], "valid")
+                input_grad[j] += signal.convolve2d(output_grad[i], self.kernels[i, j], "full")
+        
+        self.kernels -= learning_rate * kernels_grad
+        self.biases -= learning_rate * output_grad
+        return input_grad
+
+class Reshape(Layer):
+    def __init__(self, input_shape, output_shape):
+        self.input_shape = input_shape
+        self.output_shape = output_shape
+    
+    def forward(self, input):
+        return np.reshape(input, self.output_shape)
+
+    def backward(self, output_grad, learning_rate):
+        return np.reshape(output_grad, self.input_shape)
