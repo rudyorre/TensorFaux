@@ -92,6 +92,7 @@ markdown: kramdown
 exclude:
   - Gemfile
   - Gemfile.lock
+  - JEKYLL_README.md
 #  - jekyll-docs-theme.gemspec
 #  - LICENSE.md
 #  - README.md
