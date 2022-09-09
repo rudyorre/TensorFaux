@@ -5,7 +5,6 @@ from tensorfaux import util
 class Sequential:
     def __init__(self, layers=[]):
         '''
-        Sequential models should always start with an `Input` layer.
         '''
         self.layers = []
         for layer in layers:
