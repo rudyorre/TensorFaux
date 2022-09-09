@@ -69,10 +69,9 @@ Y = np.reshape([[0], [1], [1], [0]], (4, 1, 1))
 
 # Instantiation
 model = Sequential([
-    Input(2),
-    Dense(3),
+    Dense(2, 3),
     Tanh(),
-    Dense(1),
+    Dense(3, 1),
     Tanh(),
 ])
 model.compile(optimizer=SGD(learning_rate=0.01, batch_size=3))
