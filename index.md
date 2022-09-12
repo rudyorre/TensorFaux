@@ -2,10 +2,10 @@
 layout: full
 homepage: true
 disable_anchors: true
-description: <h4>/ˈtensərfō/</h4><br /><h5>A knock-off of TensorFlow's more basic deep learning features.</h5>
+description: <h4>/ˈtensərfō/</h4><br /><h5>A knock-off of TensorFlow Keras.</h5>
 ---
 
-A neural network implementation which utilizes a simimilar API to [TensorFlow Keras](https://www.tensorflow.org/api_docs/python/tf/keras), the high-level API of [TensorFlow](https://www.tensorflow.org/). Everything here is written from scratch in [Python](https://www.python.org/) and [Numpy](https://numpy.org/), which allows these complex models to be more interpretable.
+A neural network implementation which utilizes a similar API to [TensorFlow Keras](https://www.tensorflow.org/api_docs/python/tf/keras), the high-level API of [TensorFlow](https://www.tensorflow.org/). Everything here is written from scratch in [Python](https://www.python.org/) and [Numpy](https://numpy.org/), which allows these complex models to be more interpretable.
 
 <!---
 > I've never seen a more mediocre theme it actually hurts my insides.
@@ -44,16 +44,16 @@ Despite being a small library, the simplicity and flexibility of this library ma
 
 Not only does the API reduce cognitive load in its simplicity, the respective code is also built to be as simple as possible. Instead of having to dive into the low-level tensor operations, exportable graphs and hardware support, you can look directly at the fundamental linear algebra and calculus that brings deep learning to life.
 
-### Flexibility
+### Flexible
 
-Due to its simplicity, the code could be easily modified to support new features and bug fixes. This flexibility allows anyone to enhance this project with a relatively gentle learning curve.
+The source code could be easily modified to support new features and bug fixes. This flexibility allows anyone to enhance this project with a relatively gentle learning curve.
 
 </div>
 </div>
 
 ## Sample Usage
 
-Below is an example of a neural network with two `Dense()` layers using `Tanh()` activation functions, optimized with [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent), learning the XOR function. Although seemingly trivial, the XOR function isn't [linearly separable](https://medium.com/@lucaspereira0612/solving-xor-with-a-single-perceptron-34539f395182#:~:text=Geometrically%2C%20this%20means%20the%20perceptron,single%20hyperplane%20to%20separate%20it.), meaning linear models such as [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) and single-layer [perceptrons](https://en.wikipedia.org/wiki/Perceptron) cannot learn XOR.
+Below is an example of a simple neural network optimized with [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent), learning the XOR function. Although seemingly trivial, the XOR function isn't [linearly separable](https://medium.com/@lucaspereira0612/solving-xor-with-a-single-perceptron-34539f395182#:~:text=Geometrically%2C%20this%20means%20the%20perceptron,single%20hyperplane%20to%20separate%20it.), meaning linear models such as [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) and single-layer [perceptrons](https://en.wikipedia.org/wiki/Perceptron) cannot learn XOR.
 
 ```python
 import numpy as np
