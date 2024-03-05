@@ -3,9 +3,10 @@ from tensorfaux import optimizers
 from tensorfaux import util
 
 class Sequential:
-    def __init__(self, layers=[]):
+    def __init__(self, layers=None):
         '''
         '''
+        layers = [] if layers is None else layers
         self.layers = []
         for layer in layers:
             self.add(layer)
